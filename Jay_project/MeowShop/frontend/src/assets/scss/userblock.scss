@@ -1,0 +1,71 @@
+.user {
+  padding: 0 30px 10px 30px;
+  p {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: 10rem;
+    padding: 15px 0;
+    letter-spacing: .5em;
+    cursor: pointer;
+    padding-left: 10px;
+    transform: scale(1);
+    transition: all .3 ease;
+
+    &:hover {
+      transform: scale(1.1);
+      background-color: rgba(154, 190, 170, .3);
+    }
+
+    a {
+      margin-left: 10px;
+    }
+
+    span {
+      margin-left: 10px;
+    }
+  }
+
+  .link {
+    display: flex;
+    flex-direction: column;
+
+    .login {
+      border-radius: 10px;
+      background: var(--main-color);
+      padding: 25px 3rem;
+      margin-top: 20px;
+      white-space: nowrap;
+      color: white;
+    }
+
+    .register {
+      border: 1px solid var(--main-color);
+      border-radius: 10px;
+      background: white;
+      padding: 25px 3rem;
+      margin: 10px 0;
+      white-space: nowrap;
+      color: var(--main-color);
+    }
+  }
+
+  .logged-in {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .account {
+      font-weight: bold;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--font-color);
+
+      h3 {
+        text-align: center;
+        margin: 20px 0;
+      }
+    }
+  }
+}

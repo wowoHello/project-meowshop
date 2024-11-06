@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #f3c623;
+  margin: 1rem;
+}
+
+h2 {
+  font-size: 24px;
+  color: #f3c623;
+  margin-bottom: 1rem;
+}
+
+body {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(
+      180deg,
+      rgba(104, 186, 207, 0.2) 0%,
+      rgba(0, 66, 83, 0.2) 100%
+    ),
+    url(../img/loginbg.png), url(../img/loginbg2.png);
+  background-size: auto, contain, cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.error-content {
+  display: none;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #f66;
+  width: 100%;
+  height: 2.5rem;
+  border-radius: 5px;
+  transform: translateY(-5px);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.error-message {
+  display: block;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #f66;
+  width: 100%;
+  height: 2.5rem;
+  border-radius: 5px;
+  transform: translateY(5px);
+  opacity: 1;
+}
+
+.error-message::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-color: transparent transparent #f66 transparent;
+  border-style: solid;
+  border-width: 12px;
+}
+
+.input-error {
+  border: 1px solid red !important;
+}

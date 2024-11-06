@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  width: 100%;
+  // 左側導覽列
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    h1 {
+      color: #000;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--font-color);
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+      li {
+        width: 100%;
+        border-bottom: 1px solid var(--font-color);
+        padding: 20px 0;;
+      }
+    }
+  }
+}

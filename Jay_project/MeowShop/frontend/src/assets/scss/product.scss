@@ -1,0 +1,143 @@
+.container {
+  width: 60%;
+  margin: 20px auto;
+
+  .topcontent {
+    display: flex;
+    .carousel {
+      flex: 1;
+    }
+  }
+
+  .msg {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 0 2rem;
+
+    h1,
+    h3 {
+      padding-left: 2rem;
+      border-left: 4px solid var(--main-color);
+    }
+
+    h1 {
+      font-weight: bold;
+      letter-spacing: 1rem;
+      padding-bottom: 20px;
+    }
+
+    h3 {
+      margin-bottom: 20px;
+    }
+
+    p {
+      line-height: 2rem;
+      margin-bottom: 20px;
+    }
+
+    p.price {
+      font-size: 20px;
+      color: var(--price-color);
+    }
+
+    .count {
+      position: relative;
+      display: flex;
+      justify-self: center;
+      align-items: center;
+      height: 3rem;
+      border: 1px solid var(--font-color);
+      border-radius: 5px;
+      overflow: hidden;
+
+      span {
+        padding: 30px;
+        font-weight: bold;
+      }
+
+      .left {
+        border-right: 1px solid var(--font-color);
+        cursor: pointer;
+      }
+
+      .right {
+        border-left: 1px solid var(--font-color);
+        cursor: pointer;
+      }
+
+      input {
+        flex: 1;
+        height: 100%;
+        text-align: center;
+        border: none;
+      }
+    }
+    .shop {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      margin: 0 20px;
+      .btn {
+        display: block;
+        font-size: 18px;
+        margin: 20px 0 20px 20px;
+        width: 100%;
+        height: 3rem;
+        border: 1px solid var(--main-color);
+        border-radius: 5px;
+        background-color: var(--main-color);
+        color: #fff;
+        transform: scale(1);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        &:hover {
+          transform: scale(1.02)
+        }
+      }
+    }
+  }
+
+  aside {
+    margin: 2rem 0;
+
+    h2 {
+      padding-left: 1rem;
+      margin-bottom: 20px;
+      border-left: 4px solid var(--font-color);
+    }
+  }
+
+  section {
+    h2 {
+      padding-left: 1rem;
+      margin: 20px 0;
+      border-left: 4px solid var(--font-color);
+    }
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+
+      li {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 10px;
+        gap: 10px;
+
+        img {
+          width: 100%;
+          padding: 10px 0;
+        }
+
+        .price {
+          color: var(--price-color);
+        }
+      }
+    }
+  }
+}

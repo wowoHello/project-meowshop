@@ -1,0 +1,81 @@
+.container {
+  display: flex;
+  width: 100%;
+  .title {
+    width: 100%;
+    padding: 1rem;
+    padding-left: 2rem;
+    font-size: 26px;
+    border-left: 4px solid var(--main-color);
+  }
+  // 左側導覽列
+  .sidebar {
+    width: 20%;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    ul {
+      list-style: none;
+      padding-left: 0;
+      li {
+        width: 100%;
+        border-bottom: 1px solid var(--font-color);
+        &:hover a p{
+          transform: scale(1.2);
+        }
+        a {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          text-decoration: none;
+          padding: 2rem 0;
+          height: 100%;
+          p {
+            font-size: 18px;
+            color: var(--font-color);
+            transition: all 0.2s ease;
+          }
+        }
+      }
+    }
+  }
+  // 右側內容區
+  .main-content {
+    position: relative;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 2rem;
+    .product {
+      background-color: #fff;
+      flex-basis: calc(30% - 20px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 1rem;
+      border-radius: 8px;
+      img {
+        max-width: 100%;
+      }
+      .product-name {
+        font-size: 18px;
+        margin: 10px 0;
+      }
+      .product-price {
+        font-size: 16px;
+        color: var(--price-color);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1060px) {
+  .container {
+    .main-content {
+      .product {
+        flex-basis: 40%;
+      }
+    }
+  }
+}
