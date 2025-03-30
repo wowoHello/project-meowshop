@@ -11,7 +11,7 @@
       <span class="cardTitle">貓砂盆 🐾</span>
       </div>
       <div class="item">
-        <div class="card" v-for="(product, i) in getProducts" :key="i" v-if="product.category_id === 1">
+        <div class="card" v-for="(product, i) in catLitterProducts" :key="i">
           <router-link :to="`/product/${product.category_name}/${product.no}`">
             <img :src="product.image_url[0]" alt="cat01">
             <h1>{{ product.name }}</h1>
@@ -20,7 +20,7 @@
             </p>
           </router-link>
         </div>
-        <router-link :to="`/${getProducts[0].category_name}`">
+        <router-link v-if="catLitterProducts.length" :to="`/${catLitterProducts[0].category_name}`">
           <div class="more">查看更多</div>
         </router-link>
       </div>
@@ -30,7 +30,7 @@
         <span class="cardTitle">旅行外出 🐾</span>
       </div>
       <div class="item">
-        <div class="card" v-for="(product, i) in getProducts" :key="i" v-if="product.category_id === 2">
+        <div class="card" v-for="(product, i) in catTravelProducts" :key="i">
           <router-link :to="`/product/${product.category_name}/${product.no}`">
             <img :src="product.image_url[0]" alt="cat01">
             <h1>{{ product.name }}</h1>
@@ -39,7 +39,7 @@
             </p>
           </router-link>
         </div>
-        <router-link :to="`/${getProducts[5].category_name}`">
+        <router-link v-if="catTravelProducts.length" :to="`/${catTravelProducts[0].category_name}`">
           <div class="more">查看更多</div>
         </router-link>
       </div>
@@ -64,15 +64,23 @@ export default {
     };
   },
   mounted() {
+    this.getManyProducts();
     this.loadProducts(["catlitter", "travel"]);
   },
   computed: {
-    ...mapGetters(["getProducts", "isLoading", "getError"])
+    ...mapGetters(["getProducts", "isLoading", "getError"]),
+    catLitterProducts() {
+      return this.getProducts.filter(p => p.category_id == 1);
+    },
+    catTravelProducts() {
+      console.log(this.getProducts)
+      return this.getProducts.filter(p => p.category_id == 2);
+    },
   },
   methods: {
-    ...mapActions(["getAllProducts"]),
+    ...mapActions(["getManyProducts"]),
     loadProducts(categories) {
-      this.getAllProducts(categories);
+      this.getManyProducts(categories);
     },
   },
 };

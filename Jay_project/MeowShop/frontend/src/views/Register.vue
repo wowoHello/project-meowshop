@@ -124,7 +124,12 @@ export default {
             this.$router.push('/login'); 
           });
         } else {
-          console.log('失敗啦');
+          this.$swal.fire({
+            title: '註冊失敗',
+            icon: 'error',
+            text: response.data.message,
+            position: 'center'
+          });
         }
       } catch (error) {
         console.log('error', error);

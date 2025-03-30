@@ -19,13 +19,13 @@ const state = {
 
 /* 負責從 state 中取得資料，類似於 Vue 組件中的 computed 屬性 */
 const getters = {
-  isLoggedIn: state => state.isLoggedIn,
-  isLoading: state => state.loading,
-  getError: state => state.error,
-  getUser: state => state.user,
-  getCategory: state => state.category,
-  getProducts: state => state.products,
-  getproductDetail: state => state.productDetail,
+  isLoggedIn: (state) => state.isLoggedIn,
+  isLoading: (state) => state.loading,
+  getError: (state) => state.error,
+  getUser: (state) => state.user,
+  getCategory: (state) => state.category,
+  getProducts: (state) => state.products,
+  getproductDetail: (state) => state.productDetail,
 }
 
 /* 負責處理異步操作（例如 AJAX 請求）並調用 mutations 更新 state，不直接改變 state，類似於 Vue 組件中的 methods */
@@ -87,7 +87,7 @@ const actions = {
   // 取得分類資料
   async getCategories({ commit }) {
     commit('SET_LOADING', true);
-  commit('SET_ERROR', null);
+    commit('SET_ERROR', null);
   try {
     const response = await axios.get('http://localhost:3000/categories');
     console.log('取得分類:', response.data);
@@ -122,7 +122,7 @@ const actions = {
         const response = await axios.get(`http://localhost:3000/products?category=${categories}`);
         combinedProducts = response.data.products;
       }
-
+      console.log(combinedProducts);
       commit('SET_PRODUCTS', combinedProducts);
     } catch (error) {
       commit('SET_ERROR', '產品詳細資料加載失敗');
@@ -151,7 +151,22 @@ const actions = {
       commit('SET_LOADING', false);
     }
   },
-}
+  // 取得全部產品
+  async getManyProducts({ commit }) {
+    commit('SET_LOADING', true);
+    commit('SET_ERROR', null);
+    try {
+      const res = await axios.get('http://localhost:3000/products'); // 撈全部產品
+      commit('SET_PRODUCTS', res.data.products);
+    } catch (error) {
+      commit('SET_ERROR', '產品資料載入失敗');
+      console.error('產品資料載入失敗：', error);
+    } finally {
+      commit('SET_LOADING', false);
+    }
+  }
+  
+};
 
 /* 負責更改 state 狀態，類似於 Vue 中的 methods，但專門用於修改 state */
 const mutations = {
@@ -185,12 +200,11 @@ const mutations = {
   CLEAR_USER(state) {
     state.user = null;
   },
-}
-
+};
 
 export default new Vuex.Store({
   state,
   getters,
   mutations,
   actions,
-})
+});

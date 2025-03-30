@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     <!-- header -->
     <MeowHeader class="meow-header" />
     <!-- content -->
@@ -22,11 +22,23 @@ export default {
 }
 </script>
 <style scoped>
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .meow-header {
   position: relative;
 }
 
 .router-view-container {
   position: relative;
+  flex: 1;
 }
 </style>

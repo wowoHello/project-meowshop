@@ -1,0 +1,58 @@
+-- MySQL dump 10.13  Distrib 8.0.40, for Win64 (x86_64)
+--
+-- Host: localhost    Database: shopingmall
+-- ------------------------------------------------------
+-- Server version	8.0.40
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(30) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `phonenumber` varchar(45) DEFAULT NULL,
+  `userbirthday` varchar(45) DEFAULT NULL,
+  `role` varchar(45) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'jay','jay@test.com','$2b$10$UFbr6KFRq8/UDKFp7zKmo.nljB7QbjiDsBU9HJ8Qu19ckeBVZt0CC','0980000010','2024-11-28','user','2024-11-08 05:28:36','2024-11-08 05:28:36'),(2,'jay02','jay02@test.com','$2b$10$UYnnfflM31a7rkN3jzNA5eJeem.UJP7I0GO7VGDl4fbJKwpsysuNK','0980000000','','user','2024-12-05 13:17:49','2024-12-05 13:17:49'),(3,'jay03','jay03@test.com','$2b$10$K6qHxNGZ11MVuacFgybpPe/CWxb3.FBil4rMUwVeBdGlB2cGcWvfq','0900000000','2024-12-03','user','2024-12-05 13:20:26','2024-12-05 13:28:23'),(4,'jaytest','jaytest@test.com','$2b$10$V5vDwZfE7WASjX0AZ3iV4.DwD6UAgw/bCER42gNkzSS1V2Ynz2EuC','0900000000','2024-12-02','user','2024-12-05 13:30:56','2024-12-05 13:32:12'),(5,'jay04','jay04@test.com','$2b$10$5R43eNkmBc4lyu71O8UHUeKeLJR1L7HNSiIxtNjbRf4KTpxAQbsC2','0900000000','2024-12-10','user','2024-12-05 13:33:09','2024-12-05 13:33:26'),(6,'user','user@test.com','$2b$10$tibxRshUVTh.8N0b5dXVsO6H58236qiSGE6mRuN9/ZGjTvMLiCPou','0900000000','2024-12-07','user','2024-12-05 13:34:48','2024-12-05 13:35:19'),(7,'user001','user01@test.com','$2b$10$gfxC1sacQ.j7vo9bNlJX3e.vRyqhkOTjRstGERpO1OUuL4mgU00ya','0900000000','2024-12-27','user','2024-12-05 13:36:49','2024-12-05 13:37:47');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-12-11 16:02:20

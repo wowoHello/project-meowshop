@@ -29,7 +29,7 @@
           <p @click="handleLogout">登出</p>
         </div>
         <div class="msg" v-else>
-          <p> 訪客 </p>
+          <p>訪客</p>
         </div>
         <p><router-link to="/updateaccount">查看個人資訊</router-link></p>
       </div>
@@ -48,14 +48,14 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
   name: "userAccount",
   computed: {
-    ...mapGetters(['getUser']),
+    ...mapGetters(["getUser"]),
   },
   methods: {
-    ...mapActions(['logout']),
+    ...mapActions(["logout"]),
     handleLogout() {
       this.logout(); // 調用 Vuex 的 logout action
       this.$router.push('/'); // 跳轉到首頁
-      this.$emit('input', false);
+      this.$emit("input", false);
     },
   }
 }

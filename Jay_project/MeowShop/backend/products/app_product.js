@@ -2,6 +2,37 @@ const express = require('express');
 const { app, db } = require('../app_dbserve.js');
 app.use('/uploads', express.static('public/uploads'));
 
+// 取得所有商品
+const getAllProducts = async (req, res) => {
+  const { category } = req.query;
+
+  try {
+    let query = `
+      SELECT
+        p.*,
+        c.category_name
+      FROM
+        products p
+      JOIN
+        categories c ON p.category_id = c.id
+    `;
+    let params = [];
+
+    if (category) {
+      const categoryList = Array.isArray(category) ? category : [category];
+      const placeholders = categoryList.map(() => '?').join(', ');
+      query += ` WHERE c.category_name IN (${placeholders})`;
+      params = categoryList;
+    }
+
+    const [products] = await db.query(query, params);
+    res.status(200).json({ products });
+  } catch (error) {
+    console.error('讀取產品資料錯誤：', error);
+    res.status(500).send('伺服器錯誤');
+  }
+};
+
 // 取得所有分類
 const getCategory = async (req, res) => {
   const query = 'SELECT * FROM categories';
@@ -73,4 +104,5 @@ const getProduct = async (req, res) => {
   }
 };
 
-module.exports = { getCategory, getProductsByCategory, getProduct };
+
+module.exports = { getAllProducts, getCategory, getProductsByCategory, getProduct };

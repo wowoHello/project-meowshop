@@ -166,7 +166,7 @@ export default {
           alert("更新失敗: " + response.data.message);
         }
       } catch (error) {
-        console.error("更新請求失敗:", error);
+        console.error("更新請求失敗:", error.message);
         alert("伺服器錯誤");
       }
     },

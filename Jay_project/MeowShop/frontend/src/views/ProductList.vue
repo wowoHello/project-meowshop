@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <div class="title"  v-if="getProducts.length">
-      <img  :src="getProducts[0].category_titleimg" alt="catlitterTitle">
-      <h1>{{ getProducts[0].category_title }}</h1>
+    <div class="title" v-if="categoryData">
+      <img  :src=" categoryData.category_titleimg" alt="catlitterTitle">
+      <h1>{{  categoryData.category_title }}</h1>
     </div>
     <div class="content" v-if="getProducts.length">
       <div class="cardGroup" v-for="product in getProducts" :key="product.id">
@@ -21,7 +21,11 @@ import { mapGetters, mapActions } from 'vuex';
 
 export default {
   computed: {
-    ...mapGetters(['getProducts', 'isLoading', 'getError']),
+    ...mapGetters(['getCategory', 'getProducts', 'isLoading', 'getError']),
+    categoryData() {
+      const categoryName = this.$route.params.category_name;
+      return this.getCategory.find(item => item.category_name === categoryName);
+    },
   },
   methods: {
     ...mapActions(['getAllProducts']),
@@ -109,6 +113,7 @@ export default {
   }
 
   p.noItem {
+    margin: 2rem auto;
     text-align: center;
   }
 }

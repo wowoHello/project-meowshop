@@ -8,7 +8,7 @@ app.use('/uploads', express.static('public/uploads'));
 // 會員相關
 const { getAllUsers, getById, signupUser, loginUser, logoutUser, updateUser, getUserprofile, updatePassword } = require('./member/app_member');
 // 商品相關
-const { getCategory, getProductsByCategory, getProduct } = require('./products/app_product');
+const { getAllProducts, getCategory, getProductsByCategory, getProduct } = require('./products/app_product');
 
 // ----- member資料夾 - 會員相關ＡＰＩ -----
 // 解析使用者
@@ -30,6 +30,8 @@ app.patch("/user/password", verifyToken, updatePassword);
 
 
 // ----- products資料夾 - 商品相關ＡＰＩ -----
+// 取得所有產品
+app.get('/products', getAllProducts)
 // 取得所有分類
 app.get('/categories', getCategory);
 // 取得分類中的商品

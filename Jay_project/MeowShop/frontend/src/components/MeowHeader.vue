@@ -19,9 +19,9 @@
     </header>
     <nav :class="navbarClass">
       <ul class="navbar">
-        <li>
+        <!-- <li>
           <router-link to="/category">所有產品</router-link>
-        </li>
+        </li> -->
         <li v-for="item in getCategory" :key="item.id">
           <router-link :to="`/${item.category_name}`">{{ item.category_title }}</router-link>
         </li>
