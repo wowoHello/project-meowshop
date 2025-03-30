@@ -4,7 +4,7 @@ import vue2 from "@vitejs/plugin-vue2";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: 'project-meowshop/',
+  base: '/project-meowshop/',
   plugins: [vue2()],
   css: {
     preprocessorOptions: {
